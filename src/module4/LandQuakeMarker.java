@@ -6,7 +6,7 @@ import processing.core.PGraphics;
 /** Implements a visual marker for land earthquakes on an earthquake map
  * 
  * @author UC San Diego Intermediate Software Development MOOC team
- * @author Your name here
+ * @author Tony Aikara
  *
  */
 public class LandQuakeMarker extends EarthquakeMarker {
@@ -31,7 +31,7 @@ public class LandQuakeMarker extends EarthquakeMarker {
 
 		pg.pushStyle();
 
-		pg.ellipse(x, y, getRadius(), getRadius());
+		pg.ellipse(x, y, 2*getRadius(), 2*getRadius());
 
 		pg.popStyle();
 		

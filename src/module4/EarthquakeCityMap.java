@@ -11,6 +11,7 @@ import de.fhpotsdam.unfolding.geo.Location;
 import de.fhpotsdam.unfolding.marker.AbstractShapeMarker;
 import de.fhpotsdam.unfolding.marker.Marker;
 import de.fhpotsdam.unfolding.marker.MultiMarker;
+import de.fhpotsdam.unfolding.marker.SimplePointMarker;
 import de.fhpotsdam.unfolding.providers.Google;
 import de.fhpotsdam.unfolding.providers.MBTilesMapProvider;
 import de.fhpotsdam.unfolding.utils.MapUtils;
@@ -20,16 +21,10 @@ import processing.core.PApplet;
 /** EarthquakeCityMap
  * An application with an interactive map displaying earthquake data.
  * Author: UC San Diego Intermediate Software Development MOOC team
- * @author Your name here
+ * @author Tony Aikara
  * Date: July 17, 2015
  * */
 public class EarthquakeCityMap extends PApplet {
-	
-	// We will use member variables, instead of local variables, to store the data
-	// that the setUp and draw methods will need to access (as well as other methods)
-	// You will use many of these variables, but the only one you should need to add
-	// code to modify is countryQuakes, where you will store the number of earthquakes
-	// per country.
 	
 	// You can ignore this.  It's to get rid of eclipse warnings
 	private static final long serialVersionUID = 1L;
@@ -39,7 +34,6 @@ public class EarthquakeCityMap extends PApplet {
 	
 	/** This is where to find the local tiles, for working without an Internet connection */
 	public static String mbTilesString = "blankLight-1-3.mbtiles";
-	
 	
 
 	//feed with magnitude 2.5+ Earthquakes
@@ -114,8 +108,7 @@ public class EarthquakeCityMap extends PApplet {
 	    printQuakes();
 	 		
 	    // (3) Add markers to map
-	    //     NOTE: Country markers are not added to the map.  They are used
-	    //           for their geometric properties
+	    //NOTE: Country markers are not added to the map.  They are used for their geometric properties
 	    map.addMarkers(quakeMarkers);
 	    map.addMarkers(cityMarkers);
 	    
@@ -165,11 +158,16 @@ public class EarthquakeCityMap extends PApplet {
 		ellipse(55, 220, 10, 10);
 		fill(255, 0, 0);
 		ellipse(55, 240, 10, 10);
+		fill(255, 255, 255);
+		ellipse(55, 260, 10, 10);
+		line(50, 255, 60, 265);
+		line(50, 265, 60, 255);
 
 		fill(0, 0, 0);
 		text("Shallow", 70, 200);
 		text("Intermediate", 70, 220);
 		text("Deep", 70, 240);
+		text("With in Past Day", 70, 260);
 	}
 
 	
