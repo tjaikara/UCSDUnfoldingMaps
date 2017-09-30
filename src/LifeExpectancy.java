@@ -4,6 +4,7 @@ import de.fhpotsdam.unfolding.data.GeoJSONReader;
 import de.fhpotsdam.unfolding.marker.Marker;
 import de.fhpotsdam.unfolding.providers.Google;
 import de.fhpotsdam.unfolding.utils.MapUtils;
+
 import processing.core.PApplet;
 
 import java.util.ArrayList;
@@ -13,6 +14,7 @@ import java.util.Map;
 import java.util.regex.Pattern;
 
 public class LifeExpectancy extends PApplet{
+
 
     UnfoldingMap map;
     Map<String, Float> lifeExpByCountry;
