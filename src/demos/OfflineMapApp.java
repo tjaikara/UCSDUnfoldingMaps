@@ -1,3 +1,5 @@
+package demos;
+
 import processing.core.PApplet;
 import de.fhpotsdam.unfolding.UnfoldingMap;
 import de.fhpotsdam.unfolding.providers.MBTilesMapProvider;

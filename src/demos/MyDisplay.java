@@ -1,34 +1,43 @@
 package demos;
 
 import processing.core.PApplet;
+import processing.core.PImage;
 
-/** 
- * A class to illustrate some use of the PApplet class
- * Used in module 3 of the UC San Diego MOOC Object Oriented Programming in Java
- * 
- * @author UC San Diego Intermediate Software Development MOOC team
- * 
- *
+/**
+ * Created by taikara on 6/22/17.
  */
 public class MyDisplay extends PApplet {
 
-	public void setup()
-	{
+	private String URL = "/Users/taikara/myProjects/javaProgramms/data/palmTrees.jpg";
+	private PImage backGroundImg;
+
+	public void setup(){
 		size(400, 400);
-		background(200, 200, 200);
-		
+		backGroundImg = loadImage(URL, "jpg");
 	}
-	
-	public void draw()
-	{
-		fill(255, 255, 0);
-		ellipse(200, 200, 390, 390);
-		fill(0, 0, 0);
-		ellipse(120, 130, 50, 70);
-		ellipse(280, 130, 50, 70);
-		
-		noFill();
-		arc(200, 280, 75, 75, 0, PI);
+
+	public void draw(){
+
+		backGroundImg.resize(0, height);
+		image(backGroundImg, 0, 0);
+
+		int [] fillColor = sunColor(second());
+		fill(fillColor[0], fillColor[1], fillColor[2]);
+
+		ellipse(width/4, height/5, width/5, height/5);
 	}
-	
+
+	private int [] sunColor(float seccond) {
+
+		int[] sunColorVlaues = new int[3];
+
+		float diffFrom30 = Math.abs(30-seccond);
+
+		float ratio = diffFrom30/30;
+		sunColorVlaues[0]=(int)(255*ratio);
+		sunColorVlaues[1]=(int)(255*ratio);
+		sunColorVlaues[2]=0;
+
+		return sunColorVlaues;
+	}
 }

@@ -1,4 +1,4 @@
-package module1;
+package demos;
 
 import processing.core.PApplet;
 import de.fhpotsdam.unfolding.UnfoldingMap;

@@ -3,6 +3,9 @@ package module5;
 import de.fhpotsdam.unfolding.data.PointFeature;
 import processing.core.PGraphics;
 
+import static processing.core.PConstants.CENTER;
+import static processing.core.PConstants.LEFT;
+
 /** Implements a visual marker for earthquakes on an earthquake map
  * 
  * @author UC San Diego Intermediate Software Development MOOC team
@@ -58,6 +61,9 @@ public abstract class EarthquakeMarker extends CommonMarker
 	// calls abstract method drawEarthquake and then checks age and draws X if needed
 	@Override
 	public void drawMarker(PGraphics pg, float x, float y) {
+
+		PGraphics bufferPG = new PGraphics();
+
 		// save previous styling
 		pg.pushStyle();
 			
@@ -93,8 +99,14 @@ public abstract class EarthquakeMarker extends CommonMarker
 	@Override
 	public void showTitle(PGraphics pg, float x, float y)
 	{
-		// TODO: Implement this method
-		
+		String title = getStringProperty("title");
+		pg.pushStyle();
+		pg.fill(255, 255, 255);
+		pg.rect(x, y, pg.textWidth(title) + 15, 15);
+		pg.fill(0);
+		pg.textAlign(LEFT, CENTER);
+		pg.text(title,x+5,y+6);
+		pg.popStyle();
 	}
 
 	

@@ -1,0 +1,7 @@
+#org.jbehave.core.embedder.StoryManager
+#Thu May 31 13:56:25 CDT 2018
+jbehave/stories/Sum.story=0
+threads=1
+total=0
+jbehave/stories/Math.story=0
+threadAverage=0

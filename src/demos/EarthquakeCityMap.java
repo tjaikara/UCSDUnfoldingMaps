@@ -1,4 +1,4 @@
-package module3;
+package demos;
 
 //Java utilities libraries
 import java.util.ArrayList;

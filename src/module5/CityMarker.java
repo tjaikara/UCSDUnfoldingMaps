@@ -7,6 +7,9 @@ import de.fhpotsdam.unfolding.marker.SimplePointMarker;
 import processing.core.PConstants;
 import processing.core.PGraphics;
 
+import static processing.core.PConstants.CENTER;
+import static processing.core.PConstants.LEFT;
+
 /** Implements a visual marker for cities on an earthquake map
  * 
  * @author UC San Diego Intermediate Software Development MOOC team
@@ -16,7 +19,7 @@ import processing.core.PGraphics;
 // TODO: Change SimplePointMarker to CommonMarker as the very first thing you do 
 // in module 5 (i.e. CityMarker extends CommonMarker).  It will cause an error.
 // That's what's expected.
-public class CityMarker extends SimplePointMarker {
+public class CityMarker extends CommonMarker {
 	
 	public static int TRI_SIZE = 5;  // The size of the triangle marker
 	
@@ -31,18 +34,17 @@ public class CityMarker extends SimplePointMarker {
 		// and "population" (population, in millions)
 	}
 
-	
 	/**
 	 * Implementation of method to draw marker on the map.
 	 */
-	public void draw(PGraphics pg, float x, float y) {
+	public void drawMarker(PGraphics pg, float x, float y) {
 		// Save previous drawing style
 		pg.pushStyle();
-		
+
 		// IMPLEMENT: drawing triangle for each city
 		pg.fill(150, 30, 30);
 		pg.triangle(x, y-TRI_SIZE, x-TRI_SIZE, y+TRI_SIZE, x+TRI_SIZE, y+TRI_SIZE);
-		
+
 		// Restore previous drawing style
 		pg.popStyle();
 	}
@@ -50,10 +52,15 @@ public class CityMarker extends SimplePointMarker {
 	/** Show the title of the city if this marker is selected */
 	public void showTitle(PGraphics pg, float x, float y)
 	{
-		
-		// TODO: Implement this method
+		String text = "City: " + getCity()+ " Country: "+getCountry()+" Population: " +getPopulation();
+		pg.pushStyle();
+		pg.fill(255,255,255);
+		pg.rect(x, y, pg.textWidth(text)+15, 15);
+		pg.fill(0);
+		pg.textAlign(LEFT, CENTER);
+		pg.text( text ,x+5,y+6);
+		pg.popStyle();
 	}
-	
 	
 	
 	/* Local getters for some city properties.  

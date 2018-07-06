@@ -124,7 +124,7 @@ public class EarthquakeCityMap extends PApplet {
 	
 	// helper method to draw key in GUI
 	private void addKey() {
-
+		//Equilateral triangle
 		float traingleSideLength = 10f;
 		float traingleHeight = 0.866f*traingleSideLength;
 		float triangleInnerRadius = 0.28868f*traingleSideLength;
